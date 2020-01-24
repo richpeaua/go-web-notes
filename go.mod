@@ -1,4 +1,4 @@
-module github.com/richpeaua/go-web
+module github.com/richpeaua/go-web-notes
 
 go 1.13
 
