@@ -21,6 +21,13 @@ func newRouter() *mux.Router {
 	// Handler for GET requests to /hello
 	r.HandleFunc("/hello", hello).Methods("GET")
 
+	// Declare static file directory
+	staticFileDir := http.Dir("./assets/")
+
+	// Strip prefix and create File Server handler
+	staticFileHandler := http.StripPrefix("/assets/", http.FileServer(staticFileDir))
+
+	r.PathPrefix("/assets/").Handler(staticFileHandler).Methods("GET")
 	return r
 }
 
